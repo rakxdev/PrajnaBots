@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Urza - AI-Powered Solar Panel Efficiency Optimization. Prevent 30-40% efficiency loss with ML-driven cleaning automation."
+    />
+    <title>Urza | AI-Powered Solar Panel Cleaning &amp; Efficiency Optimization</title>
+    <link rel="icon" type="image/svg+xml" href="assets/logos/urza-logo.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/logos/urza-logo.svg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Urza | AI-Powered Solar Panel Cleaning &amp; Efficiency Optimization" />
+    <meta
+      property="og:description"
+      content="Prevent 30-40% efficiency loss with Urza's intelligent solar panel monitoring and automated cleaning platform."
+    />
+    <meta property="og:image" content="assets/images/hero/hero-bg.jpg" />
+    <meta property="og:url" content="https://www.urza.ai" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Urza | AI-Powered Solar Panel Cleaning &amp; Efficiency Optimization" />
+    <meta
+      name="twitter:description"
+      content="Urza combines AI vision, predictive scheduling, and automated cleaning to maximize solar panel output."
+    />
+    <meta name="twitter:image" content="assets/images/hero/hero-bg.jpg" />
+
+    <link rel="stylesheet" href="css/shared/reset.css" />
+    <link rel="stylesheet" href="css/shared/variables.css" />
+    <link rel="stylesheet" href="css/shared/typography.css" />
+    <link rel="stylesheet" href="css/shared/utilities.css" />
+    <link rel="stylesheet" href="css/shared/buttons.css" />
+    <link rel="stylesheet" href="css/shared/forms.css" />
+    <link rel="stylesheet" href="css/shared/cards.css" />
+    <link rel="stylesheet" href="css/shared/animations.css" />
+    <link rel="stylesheet" href="css/shared/responsive.css" />
+    <link rel="stylesheet" href="css/components/navbar.css" />
+    <link rel="stylesheet" href="css/components/footer.css" />
+    <link rel="stylesheet" href="css/index/hero.css" />
+    <link rel="stylesheet" href="css/index/problem-statement.css" />
+    <link rel="stylesheet" href="css/index/features.css" />
+    <link rel="stylesheet" href="css/index/stats.css" />
+    <link rel="stylesheet" href="css/index/testimonials.css" />
+    <link rel="stylesheet" href="css/index/cta.css" />
+    <link rel="stylesheet" href="css/shared/page-transition.css" />
+    <link rel="stylesheet" href="css/shared/loading-screen.css" />
+    <link rel="stylesheet" href="css/fixes/no-flicker.css" />
+    <link rel="stylesheet" href="css/fixes/navbar-fixes.css" />
+    <link rel="stylesheet" href="css/fixes/dashboard-center.css" />
+    <link rel="stylesheet" href="css/fixes/mobile-overflow-fix.css" />
+  </head>
+  <body>
+    <!-- Navbar component placeholder; populated from components/navbar.html -->
+    <header id="site-navbar" data-component="navbar"></header>
+
+    <main id="main-content">
+      <section id="hero" class="hero-section" aria-labelledby="hero-title">
+        <div class="container hero-container">
+          <div class="hero-content">
+            <h1 id="hero-title" class="hero-title">
+              AI-Powered Solar Panel Efficiency Optimization
+            </h1>
+            <p class="hero-subtitle">
+              Prevent 30-40% efficiency loss with intelligent monitoring, predictive maintenance, and automated cleaning.
+            </p>
+            <div class="hero-cta-group">
+              <a href="auth/register.html" class="btn btn-lg" style="background: white; color: #3b82f6; font-weight: 600; box-shadow: 0 4px 16px rgba(0,0,0,0.1);">Start Free Trial</a>
+              <a href="#dashboard-preview" class="btn btn-lg" style="background: rgba(255,255,255,0.15); color: white; border: 2px solid white; font-weight: 600; backdrop-filter: blur(10px);">Watch Demo</a>
+            </div>
+            <div class="hero-trust-badges" aria-label="Performance highlights">
+              <div class="hero-badge">
+                <span class="hero-badge__label">95%</span>
+                <span class="hero-badge__caption">Detection Accuracy</span>
+              </div>
+              <div class="hero-badge">
+                <span class="hero-badge__label">24/7</span>
+                <span class="hero-badge__caption">Autonomous Monitoring</span>
+              </div>
+              <div class="hero-badge">
+                <span class="hero-badge__label">100%</span>
+                <span class="hero-badge__caption">Automated Cleaning</span>
+              </div>
+            </div>
+          </div>
+          <div class="hero-visual" aria-hidden="true">
+            <picture class="hero-visual__media">
+              <img
+                class="hero-visual__image lazy"
+                src="assets/images/placeholders/placeholder-panel.png"
+                data-src="assets/images/hero/solar-panel-clean.png"
+                alt="Clean solar panels" />
+            </picture>
+            <div class="hero-particles" data-particles></div>
+          </div>
+        </div>
+      </section>
+
+      <section id="problem-statement" class="problem-section" aria-labelledby="problem-title">
+        <div class="container problem-container">
+          <header class="section-header">
+            <span class="section-eyebrow">The Challenge</span>
+            <h2 id="problem-title">The Solar Efficiency Challenge</h2>
+            <p class="section-description">
+              Dust, debris, and reactive maintenance erode generation capacity. Urza delivers proactive insight and automation to
+              reclaim lost revenue.
+            </p>
+          </header>
+          
+          <div class="problem-metrics" aria-label="Key efficiency loss metrics">
+            <article class="metric-card">
+              <div class="metric-icon-wrapper" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/>
+                  <line x1="12" y1="9" x2="12" y2="13"/>
+                  <line x1="12" y1="17" x2="12.01" y2="17"/>
+                </svg>
+              </div>
+              <div class="metric-content">
+                <p class="metric-value">40%</p>
+                <p class="metric-label">Efficiency lost in weeks</p>
+              </div>
+            </article>
+            <article class="metric-card">
+              <div class="metric-icon-wrapper" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="10"/>
+                  <polyline points="12 6 12 12 16 14"/>
+                </svg>
+              </div>
+              <div class="metric-content">
+                <p class="metric-value">14 days</p>
+                <p class="metric-label">Time to manual cleaning</p>
+              </div>
+            </article>
+            <article class="metric-card">
+              <div class="metric-icon-wrapper" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <line x1="12" y1="1" x2="12" y2="23"/>
+                  <path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>
+                </svg>
+              </div>
+              <div class="metric-content">
+                <p class="metric-value">₹6.5L</p>
+                <p class="metric-label">Loss per megawatt</p>
+              </div>
+            </article>
+            <article class="metric-card">
+              <div class="metric-icon-wrapper" aria-hidden="true">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <circle cx="12" cy="12" r="5"/>
+                  <line x1="12" y1="1" x2="12" y2="3"/>
+                  <line x1="12" y1="21" x2="12" y2="23"/>
+                  <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                  <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                  <line x1="1" y1="12" x2="3" y2="12"/>
+                  <line x1="21" y1="12" x2="23" y2="12"/>
+                  <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                  <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                </svg>
+              </div>
+              <div class="metric-content">
+                <p class="metric-value">11</p>
+                <p class="metric-label">Reactive outages yearly</p>
+              </div>
+            </article>
+          </div>
+          <div class="problem-solution-grid">
+            <article class="problem-column">
+              <h3>The Problem</h3>
+              <ul class="problem-list">
+                <li>Dust accumulation slashes output by up to 40% within weeks.</li>
+                <li>Manual cleaning cycles are costly, inconsistent, and labor intensive.</li>
+                <li>Undetected losses lead to significant revenue leakage every month.</li>
+                <li>Traditional monitoring reacts after efficiency has already dipped.</li>
+              </ul>
+              <div class="problem-stat" aria-live="polite">
+                <span class="problem-stat__value" data-counter-target="420">₹420 Crores</span>
+                <span class="problem-stat__label">Lost annually across large-scale solar farms</span>
+              </div>
+            </article>
+            <article class="solution-column">
+              <h3>Our Solution</h3>
+              <ul class="solution-list">
+                <li>MobileNetV4-powered vision detects dust, debris, and hotspots in real time.</li>
+                <li>Predictive maintenance scheduling halves unplanned downtime.</li>
+                <li>Automated, water-efficient cleaning cycles trigger exactly when required.</li>
+                <li>Command center dashboards deliver actionable alerts before losses escalate.</li>
+              </ul>
+              <div class="solution-actions">
+                <button type="button" class="btn btn-outline btn-icon-right">Calculate Savings</button>
+              </div>
+            </article>
+          </div>
+          <div class="problem-visual" aria-label="Surface comparison">
+            <div class="comparison-container">
+              <div class="comparison-label comparison-label-before">Before</div>
+              <div class="comparison-wrapper" data-comparison tabindex="0" aria-label="Drag or use arrow keys to compare dirty and clean solar panels">
+                <img
+                  class="comparison-image comparison-image--before lazy"
+                  src="assets/images/placeholders/placeholder-panel.png"
+                  data-src="assets/images/hero/solar-panel-dirty.png"
+                  alt="Dirty solar panel" />
+                <img
+                  class="comparison-image comparison-image--after lazy"
+                  src="assets/images/placeholders/placeholder-panel.png"
+                  data-src="assets/images/hero/solar-panel-clean.png"
+                  alt="Clean solar panel" />
+                <div class="comparison-slider" role="presentation"></div>
+                <div class="comparison-handle" aria-hidden="true">⇆</div>
+              </div>
+              <div class="comparison-label comparison-label-after">After</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="features-showcase" class="features-showcase" aria-labelledby="features-title">
+        <div class="container">
+          <header class="section-heading section-heading--center">
+            <span class="section-eyebrow">Three-Phase Intelligence</span>
+            <h2 id="features-title">Intelligent Three-Phase Approach</h2>
+            <p>
+              From AI-powered detection to predictive scheduling and water-efficient robotics, Urza orchestrates each stage of
+              solar maintenance with precision.
+            </p>
+          </header>
+
+          <div class="features-grid">
+            <article class="feature-card" data-phase="detection">
+              <span class="feature-icon" aria-hidden="true">📷</span>
+              <h3 class="feature-title">AI Vision Detection</h3>
+              <p class="feature-description">
+                MobileNetV4-powered vision identifies dust, hotspots, and shading anomalies within seconds of image capture.
+              </p>
+              <ul class="feature-list">
+                <li>93% accuracy across 38,000+ labeled samples</li>
+                <li>Edge or cloud inference options</li>
+                <li>Severity classification with confidence score</li>
+              </ul>
+              <button type="button" class="btn btn-outline feature-btn" data-modal-open="feature-detection">
+                Learn More
+              </button>
+            </article>
+
+            <article class="feature-card" data-phase="prediction">
+              <span class="feature-icon" aria-hidden="true">📅</span>
+              <h3 class="feature-title">Predictive Scheduling</h3>
+              <p class="feature-description">
+                ML forecasting combines weather, soiling rates, and sensor data to recommend the next optimal cleaning window.
+              </p>
+              <ul class="feature-list">
+                <li>24-hour &amp; 7-day degradation forecasts</li>
+                <li>Weather-adjusted maintenance windows</li>
+                <li>Automated alerts before efficiency drops</li>
+              </ul>
+              <button type="button" class="btn btn-outline feature-btn" data-modal-open="feature-prediction">
+                Learn More
+              </button>
+            </article>
+
+            <article class="feature-card" data-phase="automation">
+              <span class="feature-icon" aria-hidden="true">🤖</span>
+              <h3 class="feature-title">Water-Efficient Robotics</h3>
+              <p class="feature-description">
+                Dual-mode robotic cleaners deploy dry brushing or misting based on dust density and weather forecasts.
+              </p>
+              <ul class="feature-list">
+                <li>60% less water usage per cycle</li>
+                <li>Manual override with remote diagnostics</li>
+                <li>Safety interlocks &amp; on-site compliance</li>
+              </ul>
+              <button type="button" class="btn btn-outline feature-btn" data-modal-open="feature-automation">
+                Learn More
+              </button>
+            </article>
+          </div>
+
+          <div class="features-tabs" data-tabs>
+            <div class="tab-nav" role="tablist">
+              <button class="tab-button active" role="tab" id="tab-detection" aria-controls="panel-detection" data-tab="detection">
+                Detection
+              </button>
+              <button class="tab-button" role="tab" id="tab-prediction" aria-controls="panel-prediction" data-tab="prediction">
+                Prediction
+              </button>
+              <button class="tab-button" role="tab" id="tab-automation" aria-controls="panel-automation" data-tab="automation">
+                Automation
+              </button>
+            </div>
+
+            <div class="tab-content active" role="tabpanel" id="panel-detection" aria-labelledby="tab-detection">
+              <div class="tab-panel">
+                <h3>Surface Intelligence in Under 3 Seconds</h3>
+                <p>
+                  Upload drone or on-site camera imagery to receive real-time cleanliness scoring, hotspot detection, and anomaly
+                  classification. Urza’s active learning adapts to new environments for continuously improving accuracy.
+                </p>
+                <ul class="tab-panel-list">
+                  <li>Supports RGB, thermal, and multispectral imagery</li>
+                  <li>Auto-segmented outputs for impacted zones</li>
+                  <li>REST APIs and MQTT streams for external systems</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="tab-content" role="tabpanel" id="panel-prediction" aria-labelledby="tab-prediction">
+              <div class="tab-panel">
+                <h3>Forecast Efficiency Loss Before It Happens</h3>
+                <p>
+                  Hyperlocal meteorological feeds, particulate forecasts, and Urza’s historical datasets converge to forecast
+                  efficiency loss—allowing operations teams to plan cleaning in advance.
+                </p>
+                <ul class="tab-panel-list">
+                  <li>Dynamic thresholds tuned per installation type</li>
+                  <li>Weather risk scoring with actionable insights</li>
+                  <li>Integrates with calendars &amp; CMMS systems</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="tab-content" role="tabpanel" id="panel-automation" aria-labelledby="tab-automation">
+              <div class="tab-panel">
+                <h3>Autonomous Cleaning That Conserves Water</h3>
+                <p>
+                  Trigger cleaning cycles remotely or let Urza’s automation routines engage based on predicted energy loss and water
+                  availability. Select dry or mist modes instantly.
+                </p>
+                <ul class="tab-panel-list">
+                  <li>Real-time equipment telemetry and status</li>
+                  <li>Fail-safe shutdown and manual override modes</li>
+                  <li>Analytics on water usage, energy gain, and payback</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="tech-stack" class="tech-stack" aria-labelledby="tech-title">
+        <div class="container">
+          <header class="section-heading section-heading--center">
+            <span class="section-eyebrow">Technology Foundation</span>
+            <h2 id="tech-title">Built on Proven AI &amp; Robotics Infrastructure</h2>
+            <p>
+              Urza unifies state-of-the-art machine learning, industrial IoT, and resilient cloud services to deliver reliable solar
+              performance at scale.
+            </p>
+          </header>
+
+          <div class="tech-grid">
+            <article class="tech-card">
+              <div class="tech-icon" aria-hidden="true">🧠</div>
+              <h3 class="tech-title">MobileNetV4 AI Model</h3>
+              <p class="tech-description">
+                Lightweight yet powerful model trained on diverse solar environments with continual learning for new geographies.
+              </p>
+              <a href="#" class="tech-link">View Architecture</a>
+            </article>
+            <article class="tech-card">
+              <div class="tech-icon" aria-hidden="true">📡</div>
+              <h3 class="tech-title">IoT Sensor Array</h3>
+              <p class="tech-description">
+                Radiation flux, humidity, temperature, and particulate sensors stream telemetry to the command center 24/7.
+              </p>
+              <a href="#" class="tech-link">Sensor Specs</a>
+            </article>
+            <article class="tech-card">
+              <div class="tech-icon" aria-hidden="true">🗂️</div>
+              <h3 class="tech-title">High-Fidelity Dataset</h3>
+              <p class="tech-description">
+                38,000+ curated images across Indian climate zones deliver unmatched accuracy in dust and defect recognition.
+              </p>
+              <a href="#" class="tech-link">Dataset Insights</a>
+            </article>
+            <article class="tech-card">
+              <div class="tech-icon" aria-hidden="true">☁️</div>
+              <h3 class="tech-title">Scalable Cloud Platform</h3>
+              <p class="tech-description">
+                AWS-native microservices ensure high availability, autoscaling ingestion, and enterprise-grade security posture.
+              </p>
+              <a href="#" class="tech-link">Infrastructure Overview</a>
+            </article>
+          </div>
+
+          <div class="tech-infographic">
+            <figure class="infographic-card">
+              <svg
+                class="infographic-svg"
+                viewBox="0 0 1120 260"
+                role="img"
+                aria-labelledby="pipeline-title pipeline-desc">
+                <title id="pipeline-title">Urza automation pipeline</title>
+                <desc id="pipeline-desc">
+                  Diagram showing how Urza moves from data collection to AI analysis, prediction engine, robotic action, and continuous feedback.
+                </desc>
+                <defs>
+                  <linearGradient id="pipelineStroke" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#3b82f6" />
+                    <stop offset="50%" stop-color="#06b6d4" />
+                    <stop offset="100%" stop-color="#14b8a6" />
+                  </linearGradient>
+                  <linearGradient id="nodeFill" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" stop-color="rgba(255,255,255,0.95)" />
+                    <stop offset="100%" stop-color="rgba(226, 232, 240, 0.75)" />
+                  </linearGradient>
+                  <filter id="nodeShadow" x="-20%" y="-20%" width="140%" height="140%">
+                    <feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="rgba(15,23,42,0.18)" />
+                  </filter>
+                  <marker id="arrowHead" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+                    <path d="M2 2L10 6L2 10Z" fill="#0ea5e9" />
+                  </marker>
+                </defs>
+
+                <path
+                  d="M120 178C220 78 320 78 420 178S620 278 720 178 920 78 1020 178"
+                  fill="none"
+                  stroke="url(#pipelineStroke)"
+                  stroke-width="18"
+                  stroke-linecap="round"
+                  marker-end="url(#arrowHead)"
+                />
+
+                <g class="pipeline-stage" transform="translate(120 110)">
+                  <circle r="70" cx="0" cy="40" fill="url(#nodeFill)" filter="url(#nodeShadow)" />
+                  <circle r="54" cx="0" cy="40" fill="rgba(59,130,246,0.12)" stroke="#2563eb" stroke-width="2" />
+                  <text x="0" y="46" text-anchor="middle" font-size="28" fill="#1e3a8a" font-family="'Inter', sans-serif">📡</text>
+                  <text x="0" y="122" text-anchor="middle" font-size="18" fill="#0f172a" font-weight="600" font-family="'Inter', sans-serif">
+                    Data Collection
+                  </text>
+                  <text x="0" y="148" text-anchor="middle" font-size="14" fill="#475569" font-family="'Inter', sans-serif">
+                    Sensors &amp; drones ingest field data
+                  </text>
+                </g>
+
+                <g class="pipeline-stage" transform="translate(360 70)">
+                  <circle r="70" cx="0" cy="80" fill="url(#nodeFill)" filter="url(#nodeShadow)" />
+                  <circle r="54" cx="0" cy="80" fill="rgba(79,70,229,0.12)" stroke="#4338ca" stroke-width="2" />
+                  <text x="0" y="86" text-anchor="middle" font-size="28" fill="#312e81" font-family="'Inter', sans-serif">🧠</text>
+                  <text x="0" y="162" text-anchor="middle" font-size="18" fill="#0f172a" font-weight="600" font-family="'Inter', sans-serif">
+                    AI Analysis
+                  </text>
+                  <text x="0" y="188" text-anchor="middle" font-size="14" fill="#475569" font-family="'Inter', sans-serif">
+                    Vision models detect dust &amp; faults
+                  </text>
+                </g>
+
+                <g class="pipeline-stage" transform="translate(600 110)">
+                  <circle r="70" cx="0" cy="40" fill="url(#nodeFill)" filter="url(#nodeShadow)" />
+                  <circle r="54" cx="0" cy="40" fill="rgba(14,165,233,0.14)" stroke="#0284c7" stroke-width="2" />
+                  <text x="0" y="46" text-anchor="middle" font-size="28" fill="#0c4a6e" font-family="'Inter', sans-serif">📊</text>
+                  <text x="0" y="122" text-anchor="middle" font-size="18" fill="#0f172a" font-weight="600" font-family="'Inter', sans-serif">
+                    Prediction Engine
+                  </text>
+                  <text x="0" y="148" text-anchor="middle" font-size="14" fill="#475569" font-family="'Inter', sans-serif">
+                    Forecasts efficiency loss &amp; ROI
+                  </text>
+                </g>
+
+                <g class="pipeline-stage" transform="translate(840 70)">
+                  <circle r="70" cx="0" cy="80" fill="url(#nodeFill)" filter="url(#nodeShadow)" />
+                  <circle r="54" cx="0" cy="80" fill="rgba(16,185,129,0.14)" stroke="#0f766e" stroke-width="2" />
+                  <text x="0" y="86" text-anchor="middle" font-size="28" fill="#064e3b" font-family="'Inter', sans-serif">🤖</text>
+                  <text x="0" y="162" text-anchor="middle" font-size="18" fill="#0f172a" font-weight="600" font-family="'Inter', sans-serif">
+                    Robotic Action
+                  </text>
+                  <text x="0" y="188" text-anchor="middle" font-size="14" fill="#475569" font-family="'Inter', sans-serif">
+                    Cleans &amp; restores panel output
+                  </text>
+                </g>
+
+                <g class="pipeline-stage" transform="translate(1040 110)">
+                  <circle r="70" cx="0" cy="40" fill="url(#nodeFill)" filter="url(#nodeShadow)" />
+                  <circle r="54" cx="0" cy="40" fill="rgba(14,165,233,0.12)" stroke="#2563eb" stroke-width="2" />
+                  <text x="0" y="46" text-anchor="middle" font-size="28" fill="#1e3a8a" font-family="'Inter', sans-serif">♻️</text>
+                  <text x="0" y="122" text-anchor="middle" font-size="18" fill="#0f172a" font-weight="600" font-family="'Inter', sans-serif">
+                    Continuous Feedback
+                  </text>
+                  <text x="0" y="148" text-anchor="middle" font-size="14" fill="#475569" font-family="'Inter', sans-serif">
+                    Insights loop back to enhance AI
+                  </text>
+                </g>
+              </svg>
+              <figcaption>Data Collection → AI Analysis → Prediction Engine → Robotic Action → Continuous Feedback</figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section id="dashboard-preview" class="dashboard-preview" aria-labelledby="dashboard-title">
+        <div class="container">
+          <header class="section-heading" style="text-align: center;">
+            <span class="section-eyebrow">Command Center</span>
+            <h2 id="dashboard-title">Monitor, Analyze &amp; Control from One Interface</h2>
+            <p>
+              Get a comprehensive view of solar health with live KPIs, AI analysis, and robotic control—optimized for desktop and
+              tablet operations.
+            </p>
+          </header>
+
+          <div class="dashboard-carousel" data-carousel>
+            <button class="carousel-control carousel-control--prev" type="button" data-carousel-prev aria-label="Previous screenshot">
+              ‹
+            </button>
+            <div class="carousel-track" data-carousel-track>
+              <figure class="carousel-slide is-active">
+                <img
+                  class="carousel-image lazy"
+                  src="assets/images/placeholders/placeholder-panel.png"
+                  data-src="assets/images/dashboard/dashboard-kpi.jpg"
+                  alt="Dashboard KPIs overview" />
+                <figcaption>Real-time KPIs with customizable thresholds and severity indicators.</figcaption>
+              </figure>
+              <figure class="carousel-slide">
+                <img
+                  class="carousel-image lazy"
+                  src="assets/images/placeholders/placeholder-panel.png"
+                  data-src="assets/images/dashboard/dashboard-vision.jpg"
+                  alt="ML vision analysis interface" />
+                <figcaption>AI vision analysis visualizes dust coverage and confidence regions.</figcaption>
+              </figure>
+              <figure class="carousel-slide">
+                <img
+                  class="carousel-image lazy"
+                  src="assets/images/placeholders/placeholder-panel.png"
+                  data-src="assets/images/dashboard/dashboard-efficiency.jpg"
+                  alt="Efficiency prediction charts" />
+                <figcaption>Efficiency predictions with trend charts and cleaning recommendations.</figcaption>
+              </figure>
+              <figure class="carousel-slide">
+                <img
+                  class="carousel-image lazy"
+                  src="assets/images/placeholders/placeholder-panel.png"
+                  data-src="assets/images/dashboard/dashboard-cleaning.jpg"
+                  alt="Automated cleaning controls" />
+                <figcaption>One-click cleaning control with mode selection and safety confirmations.</figcaption>
+              </figure>
+            </div>
+            <button class="carousel-control carousel-control--next" type="button" data-carousel-next aria-label="Next screenshot">
+              ›
+            </button>
+            <div class="carousel-indicators" data-carousel-indicators></div>
+          </div>
+
+          <div class="dashboard-highlights">
+            <ul class="dashboard-highlights__list">
+              <li>Live KPI tiles with anomaly detection</li>
+              <li>AI analysis timeline &amp; asset history</li>
+              <li>Efficiency loss forecasting &amp; ROI tracking</li>
+              <li>Robotic cleaning controls with execution logs</li>
+            </ul>
+            <a class="btn btn-primary btn-lg" href="dashboard.html">Try Dashboard Demo</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="market-impact" class="market-impact" aria-labelledby="impact-title">
+        <div class="container">
+          <header class="section-heading section-heading--center">
+            <span class="section-eyebrow">Impact at Scale</span>
+            <h2 id="impact-title">Quantify the ROI of Clean Solar Arrays</h2>
+            <p>
+              Urza delivers measurable efficiency gains for utility, commercial, and industrial installations across India’s varied
+              solar zones.
+            </p>
+          </header>
+
+          <div class="india-map-container">
+            <img
+              class="india-map-image lazy"
+              src="assets/images/placeholders/placeholder-panel.png"
+              data-src="assets/images/market/india-map.png"
+              alt="India map showing Urza coverage zones" />
+            <div class="map-annotation" data-region="north">North Zone</div>
+            <div class="map-annotation" data-region="west">West Zone</div>
+            <div class="map-annotation" data-region="south">South Zone</div>
+            <div class="map-annotation" data-region="east">East Zone</div>
+          </div>
+
+          <div class="stats-grid" aria-label="Urza market impact statistics">
+            <div class="stat-card">
+              <span class="stat-icon" aria-hidden="true">₹</span>
+              <span class="stat-number" data-counter-target="12">₹12 Cr</span>
+              <span class="stat-label">Annual revenue loss prevented</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-icon" aria-hidden="true">⚡</span>
+              <span class="stat-number" data-counter-target="35">35%</span>
+              <span class="stat-label">Average efficiency gain</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-icon" aria-hidden="true">☀️</span>
+              <span class="stat-number" data-counter-target="520">520+</span>
+              <span class="stat-label">Installations monitored</span>
+            </div>
+            <div class="stat-card">
+              <span class="stat-icon" aria-hidden="true">💧</span>
+              <span class="stat-number" data-counter-target="60">60%</span>
+              <span class="stat-label">Water usage reduction</span>
+            </div>
+          </div>
+
+          <div class="regional-stats">
+            <table class="regional-table">
+              <thead>
+                <tr>
+                  <th scope="col">Zone</th>
+                  <th scope="col">Dust Severity</th>
+                  <th scope="col">Avg Loss Without Urza</th>
+                  <th scope="col">Urza Efficiency Gain</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">Northern India</th>
+                  <td>High</td>
+                  <td>35%</td>
+                  <td>+32%</td>
+                </tr>
+                <tr>
+                  <th scope="row">Western India</th>
+                  <td>Very High</td>
+                  <td>40%</td>
+                  <td>+38%</td>
+                </tr>
+                <tr>
+                  <th scope="row">Southern India</th>
+                  <td>Medium</td>
+                  <td>25%</td>
+                  <td>+22%</td>
+                </tr>
+                <tr>
+                  <th scope="row">Eastern India</th>
+                  <td>Medium</td>
+                  <td>28%</td>
+                  <td>+25%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <section class="roi-calculator" aria-labelledby="roi-heading">
+            <h3 id="roi-heading" class="calculator-heading">Calculate Your Savings</h3>
+            <form class="calculator-form" data-roi-form>
+              <div class="form-group">
+                <label for="installation-size">Installation Size (kW)</label>
+                <input id="installation-size" name="installationSize" type="number" class="input" placeholder="500" min="1" required />
+              </div>
+              <div class="form-group">
+                <label for="energy-rate">Average Energy Rate (₹/kWh)</label>
+                <input id="energy-rate" name="energyRate" type="number" class="input" placeholder="8.5" step="0.1" min="0" required />
+              </div>
+              <div class="form-group">
+                <label for="region">Region</label>
+                <select id="region" name="region" class="input" required>
+                  <option value="">Select region</option>
+                  <option value="north">Northern India</option>
+                  <option value="west">Western India</option>
+                  <option value="south">Southern India</option>
+                  <option value="east">Eastern India</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="panel-count">Number of Panels</label>
+                <input id="panel-count" name="panelCount" type="number" class="input" placeholder="1200" min="1" required />
+              </div>
+              <button type="submit" class="btn btn-primary calculate-btn">Calculate Savings</button>
+            </form>
+
+            <div class="calculator-results" data-roi-results>
+              <div class="result-item">
+                <span class="result-label">Annual energy loss avoided</span>
+                <span class="result-value" data-roi-energy>--</span>
+              </div>
+              <div class="result-item">
+                <span class="result-label">Revenue loss prevented</span>
+                <span class="result-value" data-roi-revenue>--</span>
+              </div>
+              <div class="result-item">
+                <span class="result-label">Water saved per year</span>
+                <span class="result-value" data-roi-water>--</span>
+              </div>
+              <div class="result-item result-item--highlight">
+                <span class="result-label">Projected ROI (12 months)</span>
+                <span class="result-value" data-roi-total>--</span>
+              </div>
+            </div>
+          </section>
+        </div>
+      </section>
+
+      <section id="testimonials" class="testimonials-section" aria-labelledby="testimonials-title">
+        <div class="container">
+          <header class="section-heading section-heading--center">
+            <span class="section-eyebrow">Social Proof</span>
+            <h2 id="testimonials-title">Trusted by Solar Leaders</h2>
+            <p>
+              Operations teams across utility-scale and commercial solar deployments choose Urza to deliver consistent energy
+              output.
+            </p>
+          </header>
+
+          <div class="testimonials-carousel" data-testimonials>
+            <button class="testimonial-control testimonial-control--prev" type="button" aria-label="Previous testimonial" data-testimonial-prev>
+              ‹
+            </button>
+            <div class="testimonials-track" data-testimonials-track>
+              <article class="testimonial-card is-active">
+                <div class="testimonial-quote">“Urza helped us recover 35% efficiency loss in just three months. The ROI was phenomenal.”</div>
+                <div class="testimonial-author">
+                  <img
+                    class="testimonial-avatar lazy"
+                    src="assets/images/placeholders/placeholder-panel.png"
+                    data-src="assets/images/testimonials/rajesh-kumar.jpg"
+                    alt="Portrait of Rajesh Kumar" />
+                  <div class="author-meta">
+                    <span class="author-name">Rajesh Kumar</span>
+                    <span class="author-role">Operations Manager, SolarTech Industries</span>
+                  </div>
+                </div>
+                <div class="testimonial-rating" aria-label="5 out of 5 stars">★★★★★</div>
+              </article>
+              <article class="testimonial-card">
+                <div class="testimonial-quote">“The predictive analytics saved us lakhs every quarter in manual cleaning costs.”</div>
+                <div class="testimonial-author">
+                  <img
+                    class="testimonial-avatar lazy"
+                    src="assets/images/placeholders/placeholder-panel.png"
+                    data-src="assets/images/testimonials/priya-sharma.jpg"
+                    alt="Portrait of Priya Sharma" />
+                  <div class="author-meta">
+                    <span class="author-name">Priya Sharma</span>
+                    <span class="author-role">CEO, GreenEnergy Solutions</span>
+                  </div>
+                </div>
+                <div class="testimonial-rating" aria-label="5 out of 5 stars">★★★★★</div>
+              </article>
+              <article class="testimonial-card">
+                <div class="testimonial-quote">“Real-time monitoring and automation transformed our maintenance operation.”</div>
+                <div class="testimonial-author">
+                  <img
+                    class="testimonial-avatar lazy"
+                    src="assets/images/placeholders/placeholder-panel.png"
+                    data-src="assets/images/testimonials/amit-patel.jpg"
+                    alt="Portrait of Amit Patel" />
+                  <div class="author-meta">
+                    <span class="author-name">Amit Patel</span>
+                    <span class="author-role">Technical Director, MegaSolar Farms</span>
+                  </div>
+                </div>
+                <div class="testimonial-rating" aria-label="5 out of 5 stars">★★★★★</div>
+              </article>
+              <article class="testimonial-card">
+                <div class="testimonial-quote">“Water-efficient cleaning gives us sustainability ROI alongside energy gains.”</div>
+                <div class="testimonial-author">
+                  <img
+                    class="testimonial-avatar lazy"
+                    src="assets/images/placeholders/placeholder-panel.png"
+                    data-src="assets/images/testimonials/radha-singh.jpg"
+                    alt="Portrait of Radha Singh" />
+                  <div class="author-meta">
+                    <span class="author-name">Radha Singh</span>
+                    <span class="author-role">Head of Sustainability, SunRise Utilities</span>
+                  </div>
+                </div>
+                <div class="testimonial-rating" aria-label="5 out of 5 stars">★★★★★</div>
+              </article>
+            </div>
+            <button class="testimonial-control testimonial-control--next" type="button" aria-label="Next testimonial" data-testimonial-next>
+              ›
+            </button>
+            <div class="testimonial-indicators" data-testimonial-indicators></div>
+          </div>
+
+          <div class="partners-section">
+            <h3 class="partners-heading">Partners &amp; Clients</h3>
+            <div class="partners-grid">
+              <img class="partner-logo lazy" src="assets/images/placeholders/placeholder-panel.png" data-src="assets/images/logos/partner1.png" alt="Partner 1 logo" />
+              <img class="partner-logo lazy" src="assets/images/placeholders/placeholder-panel.png" data-src="assets/images/logos/partner2.png" alt="Partner 2 logo" />
+              <img class="partner-logo lazy" src="assets/images/placeholders/placeholder-panel.png" data-src="assets/images/logos/partner3.png" alt="Partner 3 logo" />
+              <img class="partner-logo lazy" src="assets/images/placeholders/placeholder-panel.png" data-src="assets/images/logos/partner4.png" alt="Partner 4 logo" />
+              <img class="partner-logo lazy" src="assets/images/placeholders/placeholder-panel.png" data-src="assets/images/logos/partner5.png" alt="Partner 5 logo" />
+              <img class="partner-logo lazy" src="assets/images/placeholders/placeholder-panel.png" data-src="assets/images/logos/partner6.png" alt="Partner 6 logo" />
+              <img class="partner-logo lazy" src="assets/images/placeholders/placeholder-panel.png" data-src="assets/images/logos/partner7.png" alt="Partner 7 logo" />
+              <img class="partner-logo lazy" src="assets/images/placeholders/placeholder-panel.png" data-src="assets/images/logos/partner8.png" alt="Partner 8 logo" />
+            </div>
+          </div>
+
+          <div class="case-studies">
+            <h3 class="case-studies-heading">Success Stories</h3>
+            <div class="case-studies-grid">
+              <article class="case-card">
+                <img
+                  class="case-image lazy"
+                  src="assets/images/placeholders/placeholder-panel.png"
+                  data-src="assets/images/case-studies/case1.jpg"
+                  alt="Gujarat solar farm" />
+                <div class="case-body">
+                  <h4>35% Efficiency Recovery in Gujarat</h4>
+                  <p>How Urza reclaimed ₹1.2 Cr annually for a 40 MW solar farm.</p>
+                  <a href="case-studies.html" class="case-link">Read Full Story</a>
+                </div>
+              </article>
+              <article class="case-card">
+                <img
+                  class="case-image lazy"
+                  src="assets/images/placeholders/placeholder-panel.png"
+                  data-src="assets/images/case-studies/case2.jpg"
+                  alt="Rajasthan solar installation" />
+                <div class="case-body">
+                  <h4>Water Usage Cut by 60% in Rajasthan</h4>
+                  <p>Robotic cleaning optimized water consumption at a desert installation.</p>
+                  <a href="case-studies.html" class="case-link">Read Full Story</a>
+                </div>
+              </article>
+              <article class="case-card">
+                <img
+                  class="case-image lazy"
+                  src="assets/images/placeholders/placeholder-panel.png"
+                  data-src="assets/images/case-studies/case3.jpg"
+                  alt="Commercial solar rooftop" />
+                <div class="case-body">
+                  <h4>₹50L Loss Prevented in Maharashtra</h4>
+                  <p>Predictive maintenance avoided downtime for a commercial rooftop.</p>
+                  <a href="case-studies.html" class="case-link">Read Full Story</a>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="pricing-teaser" class="pricing-teaser" aria-labelledby="pricing-title">
+        <div class="container">
+          <header class="section-heading section-heading--center">
+            <span class="section-eyebrow">Pricing</span>
+            <h2 id="pricing-title">Flexible Plans for Every Deployment</h2>
+            <p>Choose the plan that aligns with your solar scale and operational maturity.</p>
+          </header>
+
+          <div class="pricing-preview-grid">
+            <article class="pricing-card">
+              <div class="pricing-badge">Residential</div>
+              <h3 class="pricing-plan">Basic</h3>
+              <p class="pricing-amount">₹4,999<span>/month</span></p>
+              <ul class="pricing-features">
+                <li>Monitor up to 10 panels</li>
+                <li>Weekly AI surface analysis</li>
+                <li>Email notifications</li>
+                <li>Manual cleaning alerts</li>
+              </ul>
+              <a class="btn btn-outline" href="pricing.html">Learn More</a>
+            </article>
+
+            <article class="pricing-card pricing-card--featured">
+              <div class="pricing-badge pricing-badge--featured">Most Popular</div>
+              <h3 class="pricing-plan">Professional</h3>
+              <p class="pricing-amount">₹14,999<span>/month</span></p>
+              <ul class="pricing-features">
+                <li>Up to 100 panels monitored</li>
+                <li>Daily AI insights &amp; predictions</li>
+                <li>Automated cleaning scheduling</li>
+                <li>Predictive maintenance alerts</li>
+                <li>API &amp; webhook integrations</li>
+                <li>Priority support</li>
+              </ul>
+              <a class="btn btn-primary" href="pricing.html" style="background: #3b82f6; color: white;">Start Free Trial</a>
+            </article>
+
+            <article class="pricing-card">
+              <div class="pricing-badge">Solar Farms</div>
+              <h3 class="pricing-plan">Enterprise</h3>
+              <p class="pricing-amount">Custom Pricing</p>
+              <ul class="pricing-features">
+                <li>Unlimited panels &amp; assets</li>
+                <li>Dedicated account manager</li>
+                <li>Custom dashboards &amp; SSO</li>
+                <li>Robotics integration suite</li>
+                <li>On-site onboarding</li>
+                <li>24/7 multi-channel support</li>
+              </ul>
+              <a class="btn btn-outline" href="contact.html">Contact Sales</a>
+            </article>
+          </div>
+
+          <div class="pricing-guarantee">
+            <span class="guarantee-icon" aria-hidden="true">🛡️</span>
+            <div class="guarantee-copy">
+              <strong>30-Day Money-Back Guarantee</strong>
+              <span>No questions asked if Urza doesn’t deliver measurable gains.</span>
+            </div>
+          </div>
+
+          <div class="pricing-cta">
+            <p>Not sure which plan fits best? Our experts will evaluate your configuration and recommend the optimal tier.</p>
+            <a class="btn btn-secondary" href="pricing.html">View Full Pricing</a>
+          </div>
+        </div>
+      </section>
+
+      <section id="final-cta" class="final-cta" aria-labelledby="cta-title">
+        <div class="final-cta__bg" aria-hidden="true"></div>
+        <div class="container final-cta__container">
+          <div class="cta-content">
+            <h2 id="cta-title">Ready to Maximize Your Solar Efficiency?</h2>
+            <p>Join 500+ installations that trust Urza to safeguard their solar output.</p>
+
+            <ul class="cta-benefits">
+              <li>Start a 30-day free trial</li>
+              <li>No credit card required</li>
+              <li>Guided onboarding under 10 minutes</li>
+              <li>Cancel anytime</li>
+            </ul>
+
+            <form class="cta-form" novalidate data-cta-form>
+              <label class="visually-hidden" for="cta-email">Email address</label>
+              <input id="cta-email" type="email" class="input" placeholder="Enter your work email" required />
+              <button type="submit" class="btn btn-primary btn-lg">Get Started Free</button>
+            </form>
+
+            <div class="cta-secondary-actions">
+              <button type="button" class="btn btn-ghost" data-modal-open="schedule-demo">Schedule a Demo</button>
+            </div>
+
+            <div class="cta-trust-indicators" role="list">
+              <div class="trust-item" role="listitem">
+                <span class="trust-icon" aria-hidden="true">🔒</span>
+                <span>SSL secured &amp; GDPR compliant</span>
+              </div>
+              <div class="trust-item" role="listitem">
+                <span class="trust-icon" aria-hidden="true">🕑</span>
+                <span>24/7 human support</span>
+              </div>
+              <div class="trust-item" role="listitem">
+                <span class="trust-icon" aria-hidden="true">🛠️</span>
+                <span>Fast, guided onboarding</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="cta-metrics">
+            <div class="metric-item">
+              <span class="metric-value" data-counter-target="520">520+</span>
+              <span class="metric-label">Installations</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-value" data-counter-target="10">₹10 Cr+</span>
+              <span class="metric-label">Savings generated</span>
+            </div>
+            <div class="metric-item">
+              <span class="metric-value" data-counter-target="95">95%</span>
+              <span class="metric-label">Customer satisfaction</span>
+            </div>
+
+            <div class="cta-social">
+              <a href="https://www.linkedin.com" aria-label="Urza on LinkedIn" class="cta-social__link">in</a>
+              <a href="https://twitter.com" aria-label="Urza on Twitter" class="cta-social__link">𝕏</a>
+              <a href="https://facebook.com" aria-label="Urza on Facebook" class="cta-social__link">f</a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer component placeholder; populated from components/footer.html -->
+    <footer id="site-footer" data-component="footer"></footer>
+
+    <script src="js/components/component-loader.js"></script>
+    <script src="js/shared/active-nav.js"></script>
+    <script src="js/shared/page-transition.js"></script>
+    <script src="js/shared/floating-auth.js"></script>
+    <script src="js/shared/config.js" defer></script>
+    <script src="js/shared/utils.js" defer></script>
+    <script src="js/shared/storage.js" defer></script>
+    <script src="js/shared/validation.js" defer></script>
+    <script src="js/components/navbar.js" defer></script>
+    <script src="js/components/navbar-mobile.js" defer></script>
+    <script src="js/components/theme-toggle.js" defer></script>
+    <script src="js/components/smooth-scroll.js" defer></script>
+    <script src="js/components/lazy-load.js" defer></script>
+    <script src="js/index/hero-animations.js" defer></script>
+    <script src="js/index/stats-counter.js" defer></script>
+    <script src="js/index/testimonials-slider.js" defer></script>
+    <script src="js/index/index-main.js" defer></script>
+  </body>
+</html>

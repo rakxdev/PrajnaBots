@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Contact Urza - Get in touch with our team for sales inquiries, support, or partnership opportunities." />
+    <title>Contact Us | Urza - AI Solar Panel Management</title>
+    <link rel="icon" type="image/svg+xml" href="assets/logos/urza-logo.svg" />
+
+    <link rel="stylesheet" href="css/shared/reset.css" />
+    <link rel="stylesheet" href="css/shared/variables.css" />
+    <link rel="stylesheet" href="css/shared/typography.css" />
+    <link rel="stylesheet" href="css/shared/utilities.css" />
+    <link rel="stylesheet" href="css/shared/buttons.css" />
+    <link rel="stylesheet" href="css/shared/forms.css" />
+    <link rel="stylesheet" href="css/shared/cards.css" />
+    <link rel="stylesheet" href="css/shared/animations.css" />
+    <link rel="stylesheet" href="css/shared/responsive.css" />
+    <link rel="stylesheet" href="css/components/navbar.css" />
+    <link rel="stylesheet" href="css/components/footer.css" />
+    <link rel="stylesheet" href="css/contact/contact.css" />
+    <link rel="stylesheet" href="css/shared/page-common.css" />
+    <link rel="stylesheet" href="css/shared/page-transition.css" />
+    <link rel="stylesheet" href="css/shared/loading-screen.css" />
+    <link rel="stylesheet" href="css/shared/floating-cta.css" />
+    <link rel="stylesheet" href="css/fixes/no-flicker.css" />
+    <link rel="stylesheet" href="css/fixes/navbar-fixes.css" />
+    <link rel="stylesheet" href="css/fixes/mobile-overflow-fix.css" />
+    <link rel="stylesheet" href="css/fixes/floating-cta-smooth.css" />
+  </head>
+  <body>
+    <header id="site-navbar" data-component="navbar"></header>
+
+    <main id="main-content">
+      <section class="page-hero">
+        <div class="container">
+          <div class="page-hero-content">
+            <h2 class="hero-heading">Get in Touch</h2>
+            <p class="hero-text">Have questions? We'd love to hear from you. Send us a message and we'll respond within 24 hours.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="contact-section">
+        <div class="container">
+          <div class="contact-grid">
+            <div class="contact-info">
+              <h2>Contact Information</h2>
+              <p>Reach out to us through any of these channels</p>
+
+              <div class="info-cards">
+                <div class="info-card">
+                  <div class="info-icon">📧</div>
+                  <h3>Email</h3>
+                  <a href="mailto:hello@urza.ai">hello@urza.ai</a>
+                  <a href="mailto:support@urza.ai">support@urza.ai</a>
+                </div>
+
+                <div class="info-card">
+                  <div class="info-icon">📞</div>
+                  <h3>Phone</h3>
+                  <a href="tel:+918012345678">+91 80123 45678</a>
+                  <p class="info-note">Mon-Fri, 9 AM - 6 PM IST</p>
+                </div>
+
+                <div class="info-card">
+                  <div class="info-icon">📍</div>
+                  <h3>Office</h3>
+                  <p>Urza Technologies Pvt Ltd</p>
+                  <p>Koramangala, Bangalore</p>
+                  <p>Karnataka, India 560034</p>
+                </div>
+
+                <div class="info-card">
+                  <div class="info-icon">💬</div>
+                  <h3>Social Media</h3>
+                  <div class="social-links">
+                    <a href="#">LinkedIn</a>
+                    <a href="#">Twitter</a>
+                    <a href="#">GitHub</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="contact-form-wrapper">
+              <form class="contact-form" id="contact-form">
+                <h2>Send us a Message</h2>
+                
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="first-name" class="form-label">First Name</label>
+                    <input type="text" id="first-name" name="firstName" class="input" required />
+                    <span class="form-error"></span>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="last-name" class="form-label">Last Name</label>
+                    <input type="text" id="last-name" name="lastName" class="input" required />
+                    <span class="form-error"></span>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="email" class="form-label">Email Address</label>
+                  <input type="email" id="email" name="email" class="input" required />
+                  <span class="form-error"></span>
+                </div>
+
+                <div class="form-group">
+                  <label for="company" class="form-label">Company (Optional)</label>
+                  <input type="text" id="company" name="company" class="input" />
+                </div>
+
+                <div class="form-group">
+                  <label for="inquiry-type" class="form-label">Inquiry Type</label>
+                  <select id="inquiry-type" name="inquiryType" class="input" required>
+                    <option value="">Select an option</option>
+                    <option value="sales">Sales Inquiry</option>
+                    <option value="support">Technical Support</option>
+                    <option value="partnership">Partnership</option>
+                    <option value="general">General Question</option>
+                  </select>
+                  <span class="form-error"></span>
+                </div>
+
+                <div class="form-group">
+                  <label for="message" class="form-label">Message</label>
+                  <textarea id="message" name="message" class="input" rows="6" required></textarea>
+                  <span class="form-error"></span>
+                </div>
+
+                <button type="submit" class="btn btn-primary btn-lg btn-block">Send Message</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="js/components/component-loader.js"></script>
+    <script src="js/shared/floating-auth.js"></script>
+    <script src="js/shared/active-nav.js"></script>
+    <script src="js/shared/page-transition.js"></script>
+
+    <script src="js/shared/config.js" defer></script>
+    <script src="js/shared/utils.js" defer></script>
+    <script src="js/shared/validation.js" defer></script>
+    <script src="js/components/navbar.js" defer></script>
+    <script src="js/components/navbar-mobile.js" defer></script>
+    <script src="js/contact/contact.js" defer></script>
+  </body>
+</html>

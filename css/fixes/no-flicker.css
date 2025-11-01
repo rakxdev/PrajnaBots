@@ -1,0 +1,38 @@
+/* Anti-Flicker Fix - Prevents White Flash on Page Navigation */
+
+html {
+  background-color: #ffffff;
+}
+
+body {
+  background-color: #ffffff;
+  opacity: 1;
+  transition: none;
+}
+
+/* Prevent flash during page load */
+body.page-loading {
+  background-color: #fafbfc;
+  opacity: 1 !important;
+}
+
+/* Smooth overlay to prevent white flash */
+.page-transition-overlay {
+  background: #fafbfc !important;
+  opacity: 0;
+}
+
+.page-transition-overlay.active {
+  opacity: 1 !important;
+  backdrop-filter: blur(4px);
+}
+
+/* Keep content visible during transition */
+#main-content {
+  background-color: transparent;
+}
+
+/* Prevent any white flash on sections */
+section {
+  background-clip: padding-box;
+}

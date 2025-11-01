@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | URZA Solar Management</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/logos/urza-logo.svg">
+  
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="../css/shared/reset.css">
+  <link rel="stylesheet" href="../css/shared/variables.css">
+  <link rel="stylesheet" href="../css/shared/typography.css">
+  <link rel="stylesheet" href="../css/shared/utilities.css">
+  <link rel="stylesheet" href="../css/shared/buttons.css">
+  <link rel="stylesheet" href="../css/shared/forms.css">
+  <link rel="stylesheet" href="../css/shared/cards.css">
+  <link rel="stylesheet" href="../css/shared/animations.css">
+  <link rel="stylesheet" href="../css/shared/responsive.css">
+  <link rel="stylesheet" href="../css/components/navbar.css">
+  <link rel="stylesheet" href="../css/components/footer.css">
+  <link rel="stylesheet" href="../css/fixes/no-flicker.css">
+  <link rel="stylesheet" href="../css/fixes/navbar-fixes.css">
+  <link rel="stylesheet" href="../css/fixes/mobile-overflow-fix.css">
+  
+  <style>
+    /* Auth Page Specific Styles */
+    .auth-page {
+      min-height: calc(100vh - 80px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      padding: calc(var(--spacing-3xl) + 80px) var(--spacing-md) var(--spacing-3xl);
+    }
+
+    .auth-container {
+      width: 100%;
+      max-width: 600px;
+      background: white;
+      border-radius: var(--radius-2xl);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+      padding: var(--spacing-3xl) var(--spacing-2xl);
+      animation: fadeInUp 0.5s ease;
+    }
+
+    .auth-logo {
+      text-align: center;
+      margin-bottom: var(--spacing-2xl);
+    }
+
+    .auth-logo img {
+      width: 60px;
+      height: 60px;
+      margin-bottom: var(--spacing-md);
+    }
+
+    .auth-logo h1 {
+      font-size: var(--text-2xl);
+      font-weight: var(--font-weight-bold);
+      color: var(--charcoal);
+      margin-bottom: var(--spacing-xs);
+    }
+
+    .auth-logo p {
+      font-size: var(--text-sm);
+      color: var(--slate);
+    }
+
+    .auth-form {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-lg);
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: var(--spacing-xs);
+    }
+
+    .form-group label {
+      font-size: var(--text-sm);
+      font-weight: var(--font-weight-semibold);
+      color: var(--charcoal);
+    }
+
+    .form-group input {
+      padding: var(--spacing-md);
+      border: 2px solid #e2e8f0;
+      border-radius: var(--radius-lg);
+      font-size: var(--text-base);
+      transition: all 0.2s ease;
+    }
+
+    .form-group input:focus {
+      outline: none;
+      border-color: var(--primary-blue);
+      box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+    }
+
+    .form-group input.error {
+      border-color: #ef4444;
+    }
+
+    .form-error {
+      font-size: var(--text-sm);
+      color: #ef4444;
+      display: none;
+    }
+
+    .form-error.visible {
+      display: block;
+    }
+
+    .form-options {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: var(--text-sm);
+    }
+
+    .remember-me {
+      display: flex;
+      align-items: center;
+      gap: var(--spacing-xs);
+    }
+
+    .remember-me input[type="checkbox"] {
+      width: 16px;
+      height: 16px;
+      cursor: pointer;
+    }
+
+    .forgot-password {
+      color: var(--primary-blue);
+      text-decoration: none;
+      font-weight: var(--font-weight-semibold);
+    }
+
+    .forgot-password:hover {
+      text-decoration: underline;
+    }
+
+    .btn-login {
+      padding: var(--spacing-md);
+      background: var(--primary-blue);
+      color: white;
+      border: none;
+      border-radius: var(--radius-lg);
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-semibold);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-login:hover {
+      background: #2563eb;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+    }
+
+    .btn-login:disabled {
+      background: #94a3b8;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    .btn-login.loading::after {
+      content: '';
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+      margin-left: 8px;
+      border: 2px solid white;
+      border-top-color: transparent;
+      border-radius: 50%;
+      animation: spin 0.6s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .divider {
+      text-align: center;
+      position: relative;
+      margin: var(--spacing-lg) 0;
+    }
+
+    .divider::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 50%;
+      height: 1px;
+      background: #e2e8f0;
+    }
+
+    .divider span {
+      position: relative;
+      background: white;
+      padding: 0 var(--spacing-md);
+      color: var(--slate);
+      font-size: var(--text-sm);
+    }
+
+    .btn-google {
+      padding: var(--spacing-md);
+      background: white;
+      border: 2px solid #e2e8f0;
+      border-radius: var(--radius-lg);
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-semibold);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--spacing-sm);
+      transition: all 0.2s ease;
+    }
+
+    .btn-google:hover {
+      background: #f8fafc;
+      border-color: #cbd5e1;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .btn-google img {
+      width: 20px;
+      height: 20px;
+    }
+
+    .auth-footer {
+      text-align: center;
+      margin-top: var(--spacing-xl);
+      font-size: var(--text-sm);
+      color: var(--slate);
+    }
+
+    .auth-footer a {
+      color: var(--primary-blue);
+      text-decoration: none;
+      font-weight: var(--font-weight-semibold);
+    }
+
+    .auth-footer a:hover {
+      text-decoration: underline;
+    }
+
+    .alert {
+      padding: var(--spacing-md);
+      border-radius: var(--radius-lg);
+      margin-bottom: var(--spacing-lg);
+      font-size: var(--text-sm);
+      display: none;
+    }
+
+    .alert.visible {
+      display: block;
+    }
+
+    .alert.success {
+      background: #d1fae5;
+      color: #065f46;
+      border: 1px solid #6ee7b7;
+    }
+
+    .alert.error {
+      background: #fee2e2;
+      color: #991b1b;
+      border: 1px solid #fca5a5;
+    }
+
+
+
+    @media (max-width: 768px) {
+      .auth-container {
+        padding: var(--spacing-2xl) var(--spacing-lg);
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar component -->
+  <div id="navbar-placeholder"></div>
+
+  <main id="main-content">
+    <div class="auth-page">
+    <div class="auth-container">
+      <div class="auth-logo">
+        <img src="../assets/logos/urza-logo.svg" alt="URZA Logo">
+        <h1>Welcome Back</h1>
+        <p>Sign in to your account to continue</p>
+      </div>
+
+      <!-- Alert Messages -->
+      <div id="alert" class="alert"></div>
+
+      <!-- Login Form -->
+      <form id="loginForm" class="auth-form">
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input 
+            type="email" 
+            id="email" 
+            name="email" 
+            placeholder="Enter your email"
+            autocomplete="email"
+            required>
+          <span class="form-error" id="emailError">Please enter a valid email address</span>
+        </div>
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input 
+            type="password" 
+            id="password" 
+            name="password" 
+            placeholder="Enter your password"
+            autocomplete="current-password"
+            required>
+          <span class="form-error" id="passwordError">Please enter your password</span>
+        </div>
+
+        <div class="form-options">
+          <label class="remember-me">
+            <input type="checkbox" id="rememberMe" name="rememberMe">
+            <span>Remember me</span>
+          </label>
+          <a href="#" class="forgot-password" id="forgotPassword">Forgot Password?</a>
+        </div>
+
+        <button type="submit" class="btn-login" id="loginBtn">
+          Sign In
+        </button>
+      </form>
+
+      <div class="divider">
+        <span>OR</span>
+      </div>
+
+      <!-- Google Sign-In -->
+      <button type="button" class="btn-google" id="googleSignIn">
+        <svg width="20" height="20" viewBox="0 0 48 48">
+          <path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/>
+          <path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/>
+          <path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/>
+          <path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.15 1.45-4.92 2.3-8.16 2.3-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/>
+        </svg>
+        Sign in with Google
+      </button>
+
+      <div class="auth-footer">
+        Don't have an account? <a href="register.html">Sign up</a>
+      </div>
+    </div>
+  </div>
+  </main>
+
+  <!-- Footer component -->
+  <div id="footer-placeholder"></div>
+
+  <!-- Scripts -->
+  <script>
+    // Load navbar
+    fetch('../components/navbar.html')
+      .then(res => res.text())
+      .then(html => {
+        // Fix relative paths for auth folder
+        html = html.replace(/href="/g, 'href="../');
+        html = html.replace(/src="assets/g, 'src="../assets');
+        document.getElementById('navbar-placeholder').innerHTML = html;
+        // Trigger event for navbar scripts
+        setTimeout(() => {
+          const event = new CustomEvent('component-loaded', { detail: 'navbar' });
+          document.dispatchEvent(event);
+        }, 50);
+      });
+    
+    // Load footer
+    fetch('../components/footer.html')
+      .then(res => res.text())
+      .then(html => document.getElementById('footer-placeholder').innerHTML = html);
+  </script>
+  <script src="../js/shared/active-nav.js"></script>
+  <script src="../js/shared/config.js" defer></script>
+  <script src="../js/shared/utils.js" defer></script>
+  <script src="../js/components/navbar.js" defer></script>
+  <script src="../js/components/navbar-mobile.js" defer></script>
+  <script type="module" src="../js/pages/login.js"></script>
+</body>
+</html>

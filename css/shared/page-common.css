@@ -1,0 +1,104 @@
+/* Common Styles for All Pages */
+
+/* Page Hero Section - Fixed Visibility */
+.page-hero {
+  padding-top: 150px !important;
+  padding-bottom: 60px !important;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  margin-top: 0 !important;
+}
+
+.page-hero-content {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 10;
+}
+
+.hero-heading {
+  font-size: 2.5rem !important;
+  font-weight: 700 !important;
+  margin-bottom: 1.5rem !important;
+  line-height: 1.2 !important;
+  color: white !important;
+}
+
+.hero-text {
+  font-size: 1.25rem !important;
+  line-height: 1.6 !important;
+  opacity: 0.95 !important;
+  color: white !important;
+}
+
+/* Section Spacing - Uniform & Balanced */
+.features-grid-section,
+.pricing-section,
+.docs-section,
+.case-studies-section,
+.mission-section,
+.values-section,
+.team-section,
+.contact-section {
+  padding: 60px 0 !important;
+}
+
+/* Grid Spacing - Balanced */
+.features-grid-3col,
+.pricing-grid,
+.case-studies-grid {
+  gap: 2rem !important;
+  margin-bottom: 2.5rem !important;
+}
+
+/* CTA Section - Bottom Spacing */
+.cta-section {
+  padding: 60px 0 !important;
+  margin-top: 60px !important;
+  margin-bottom: 0 !important;
+}
+
+.cta-box {
+  padding: 3rem 2.5rem !important;
+  margin-bottom: 1.5rem !important;
+}
+
+/* Remove Flickering Animations */
+.page-hero::before {
+  display: none !important;
+}
+
+* {
+  transition: none !important;
+  animation: none !important;
+}
+
+/* Only Keep Hover Effects */
+.feature-card-detailed:hover,
+.pricing-card:hover,
+.case-study-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 32px rgba(15, 23, 42, 0.15);
+  transition: all 0.3s ease !important;
+}
+
+/* Bottom Spacing for All Sections */
+section:last-of-type {
+  margin-bottom: 80px !important;
+}
+
+/* Navbar Active State - FORCE IT */
+.navbar-link.active {
+  background-color: #667eea !important;
+  color: white !important;
+  font-weight: 600 !important;
+  border-radius: 6px !important;
+}
+
+.navbar-link:hover {
+  background-color: rgba(102, 126, 234, 0.1) !important;
+  transition: background-color 0.2s ease !important;
+}

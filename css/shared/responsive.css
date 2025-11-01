@@ -1,0 +1,73 @@
+/* Mobile-first styling: enhance layouts progressively at wider viewports. */
+
+@media (min-width: 768px) {
+  .container,
+  .container-sm,
+  .container-md,
+  .container-lg {
+    padding-left: var(--spacing-lg);
+    padding-right: var(--spacing-lg);
+  }
+
+  h1 {
+    font-size: calc(var(--text-7xl) + 4px);
+  }
+
+  h2 {
+    font-size: calc(var(--text-5xl) + 4px);
+  }
+
+  .grid-cols-2 {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: var(--spacing-xl);
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1360px;
+  }
+
+  .layout-desktop {
+    display: grid;
+    grid-template-columns: 280px 1fr;
+    gap: var(--spacing-2xl);
+  }
+
+  .desktop-spacing-lg {
+    padding: var(--spacing-2xl);
+  }
+}
+
+@media (min-width: 1440px) {
+  .container {
+    max-width: 1520px;
+  }
+
+  .wide-section {
+    padding-top: var(--spacing-3xl);
+    padding-bottom: var(--spacing-3xl);
+  }
+
+  .wide-text {
+    max-width: 840px;
+  }
+}
+
+@media print {
+  * {
+    background: none !important;
+    color: #000 !important;
+    box-shadow: none !important;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+
+  a::after {
+    content: " (" attr(href) ")";
+    font-size: var(--text-sm);
+  }
+}

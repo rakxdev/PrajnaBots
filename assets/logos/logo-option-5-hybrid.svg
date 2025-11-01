@@ -1,0 +1,84 @@
+<!-- URZA Logo Option 5: HYBRID - Neural Sun + Solar Panel Grid -->
+<svg width="64" height="64" viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="grad5" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#667eea;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#764ba2;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  
+  <!-- OUTER STRUCTURE FROM OPTION 2 -->
+  
+  <!-- Outer ring -->
+  <circle cx="32" cy="32" r="16" stroke="url(#grad5)" stroke-width="1.5" fill="none" opacity="0.4"/>
+  
+  <!-- AI neural network rays (8 directions) -->
+  <!-- Top -->
+  <line x1="32" y1="16" x2="32" y2="6" stroke="url(#grad5)" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="32" cy="6" r="2.5" fill="#667eea"/>
+  
+  <!-- Top Right -->
+  <line x1="43.5" y1="20.5" x2="50" y2="14" stroke="url(#grad5)" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="50" cy="14" r="2.5" fill="#667eea"/>
+  
+  <!-- Right -->
+  <line x1="48" y1="32" x2="58" y2="32" stroke="url(#grad5)" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="58" cy="32" r="2.5" fill="#667eea"/>
+  
+  <!-- Bottom Right -->
+  <line x1="43.5" y1="43.5" x2="50" y2="50" stroke="url(#grad5)" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="50" cy="50" r="2.5" fill="#667eea"/>
+  
+  <!-- Bottom -->
+  <line x1="32" y1="48" x2="32" y2="58" stroke="url(#grad5)" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="32" cy="58" r="2.5" fill="#667eea"/>
+  
+  <!-- Bottom Left -->
+  <line x1="20.5" y1="43.5" x2="14" y2="50" stroke="url(#grad5)" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="14" cy="50" r="2.5" fill="#667eea"/>
+  
+  <!-- Left -->
+  <line x1="16" y1="32" x2="6" y2="32" stroke="url(#grad5)" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="6" cy="32" r="2.5" fill="#667eea"/>
+  
+  <!-- Top Left -->
+  <line x1="20.5" y1="20.5" x2="14" y2="14" stroke="url(#grad5)" stroke-width="2.5" stroke-linecap="round"/>
+  <circle cx="14" cy="14" r="2.5" fill="#667eea"/>
+  
+  
+  <!-- INNER STRUCTURE FROM OPTION 4 -->
+  
+  <!-- Solar panel grid (3x3) perfectly centered at 32,32 -->
+  <!-- Row 1 -->
+  <rect x="22" y="22" width="4.5" height="4.5" fill="url(#grad5)" opacity="0.4"/>
+  <rect x="29.75" y="22" width="4.5" height="4.5" fill="url(#grad5)" opacity="0.6"/>
+  <rect x="37.5" y="22" width="4.5" height="4.5" fill="url(#grad5)" opacity="0.4"/>
+  
+  <!-- Row 2 -->
+  <rect x="22" y="29.75" width="4.5" height="4.5" fill="url(#grad5)" opacity="0.6"/>
+  <rect x="29.75" y="29.75" width="4.5" height="4.5" fill="url(#grad5)" opacity="0.9"/>
+  <rect x="37.5" y="29.75" width="4.5" height="4.5" fill="url(#grad5)" opacity="0.6"/>
+  
+  <!-- Row 3 -->
+  <rect x="22" y="37.5" width="4.5" height="4.5" fill="url(#grad5)" opacity="0.4"/>
+  <rect x="29.75" y="37.5" width="4.5" height="4.5" fill="url(#grad5)" opacity="0.6"/>
+  <rect x="37.5" y="37.5" width="4.5" height="4.5" fill="url(#grad5)" opacity="0.4"/>
+  
+  <!-- Tech circuit lines - perfectly aligned -->
+  <line x1="26.5" y1="22" x2="26.5" y2="42" stroke="white" stroke-width="0.8" opacity="0.5"/>
+  <line x1="32" y1="22" x2="32" y2="42" stroke="white" stroke-width="0.8" opacity="0.5"/>
+  <line x1="37.5" y1="22" x2="37.5" y2="42" stroke="white" stroke-width="0.8" opacity="0.5"/>
+  <line x1="22" y1="26.5" x2="42" y2="26.5" stroke="white" stroke-width="0.8" opacity="0.5"/>
+  <line x1="22" y1="32" x2="42" y2="32" stroke="white" stroke-width="0.8" opacity="0.5"/>
+  <line x1="22" y1="37.5" x2="42" y2="37.5" stroke="white" stroke-width="0.8" opacity="0.5"/>
+  
+  <!-- Central energy node (highlight) -->
+  <circle cx="32" cy="32" r="3.5" fill="white"/>
+  <circle cx="32" cy="32" r="2.5" fill="#667eea"/>
+  
+  <!-- Corner tech nodes inside grid -->
+  <circle cx="24.25" cy="24.25" r="1.5" fill="#764ba2"/>
+  <circle cx="39.75" cy="24.25" r="1.5" fill="#764ba2"/>
+  <circle cx="24.25" cy="39.75" r="1.5" fill="#764ba2"/>
+  <circle cx="39.75" cy="39.75" r="1.5" fill="#764ba2"/>
+</svg>

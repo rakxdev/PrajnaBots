@@ -1,0 +1,50 @@
+/* Smooth Page Transitions & Loading Bar */
+
+/* Loading Bar at Top */
+#page-loading-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #667eea, #764ba2, #667eea);
+  background-size: 200% 100%;
+  z-index: 9999;
+  transition: width 0.3s ease;
+  animation: shimmer 1s ease-in-out infinite;
+  box-shadow: 0 0 10px rgba(102, 126, 234, 0.5);
+}
+
+@keyframes shimmer {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 200% 50%; }
+}
+
+/* Page Transition Overlay */
+.page-transition-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: #fafbfc;
+  z-index: 9998;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.15s ease-in;
+}
+
+.page-transition-overlay.active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+/* Fade In Animation for New Page */
+body.page-loading {
+  opacity: 0.7;
+}
+
+body.page-loaded {
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
