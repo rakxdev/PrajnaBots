@@ -1,0 +1,6 @@
+.git-credentials
+node_modules/
+.env
+.DS_Store
+*.log
+.cache/
