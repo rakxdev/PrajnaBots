@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Environment Status | Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="dashboard-style.css" />
+</head>
+<body>
+  <div class="sidebar">
+    <div>
+      <div class="logo">Dashboard</div>
+      <nav>
+        <a href="index.html" class="active">Environment Status</a>
+        <a href="panel-parameters.html">Panel Parameters</a>
+        <a href="panel-status.html">Panel Status</a>
+        <a href="cleaning-control.html">Cleaning Control System</a>
+      </nav>
+    </div>
+    <div class="logout">Logout</div>
+  </div>
+
+  <div class="fixed-header">
+    <div class="header-brand">Dashboard</div>
+    <div class="header-title">🌡️ Environment Status</div>
+  </div>
+
+  <div class="main-content">
+    <h1>🌡️ Environment Status</h1>
+    <div class="cards">
+      <div class="card">
+        <h3>🌡️ Temperature</h3>
+        <p id="temp">-- °C</p>
+      </div>
+      <div class="card">
+        <h3>💧 Humidity</h3>
+        <p id="humidity">-- %</p>
+      </div>
+      <div class="card">
+        <h3>💨 Dust Presence</h3>
+        <p id="dust">-- µg/m³</p>
+      </div>
+    </div>
+  </div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+    import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-database.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyCXC5X8cAjpRnVvbM2f11qbKY39T_9rkvU",
+      authDomain: "hackathon-a7496.firebaseapp.com",
+      databaseURL: "https://hackathon-a7496-default-rtdb.firebaseio.com",
+      projectId: "hackathon-a7496",
+      storageBucket: "hackathon-a7496.firebasestorage.app",
+      messagingSenderId: "1011038990967",
+      appId: "1:1011038990967:web:ab7a3aa8861677b10fcc72"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+
+    const tempRef = ref(db, "environment/temp");
+    const humRef = ref(db, "environment/humidity");
+
+    const tempEl = document.getElementById("temp");
+    const humEl = document.getElementById("humidity");
+    const dustEl = document.getElementById("dust");
+
+    onValue(tempRef, (snap) => {
+      tempEl.textContent = snap.val() + " °C";
+    });
+
+    onValue(humRef, (snap) => {
+      humEl.textContent = snap.val() + " %";
+    });
+
+    // Fetch dust data from OpenWeatherMap API
+    async function fetchDustData() {
+      try {
+        const lat = 22.2604; // Rourkela, Odisha
+        const lon = 84.8536;
+        const apiKey = 'd78b09357b745461e8579e49aaf3d107';
+        const url = `https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${apiKey}`;
+        
+        console.log('🌍 Fetching dust data from OpenWeatherMap...');
+        const response = await fetch(url);
+        const data = await response.json();
+        
+        console.log('✅ API Response:', data);
+        console.log('📊 PM10 Value:', data.list[0].components.pm10, 'µg/m³');
+        
+        // Get PM10 value (dust particles < 10 μm)
+        const pm10 = data.list[0].components.pm10;
+        dustEl.textContent = pm10.toFixed(1) + " µg/m³";
+        
+        console.log('✅ Display updated successfully!');
+      } catch (error) {
+        console.error('❌ Error fetching dust data:', error);
+        dustEl.textContent = "-- µg/m³";
+      }
+    }
+
+    // Fetch dust data immediately and then every 10 minutes
+    fetchDustData();
+    setInterval(fetchDustData, 600000); // 10 minutes
+  </script>
+
+  <script src="script.js"></script>
+  
+  <!-- Supabase Authentication -->
+  <script type="module" src="dashboard-auth.js"></script>
+</body>
+</html>

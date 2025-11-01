@@ -19,7 +19,7 @@
   const loadingScreen = document.createElement('div');
   loadingScreen.className = 'loading-screen';
   loadingScreen.innerHTML = `
-    <img src="assets/logos/urza-logo.svg" alt="Loading" class="loading-logo">
+    <img src="assets/logos/prajnabots-logo.png" alt="Loading" class="loading-logo">
     <div class="loading-text">Loading<span class="loading-dots"></span></div>
   `;
   document.body.appendChild(loadingScreen);

@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cleaning Control System | Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="dashboard-style.css" />
+  <style>
+    /* Cleaning Control Specific Styles */
+    .mode-select {
+      display: flex;
+      gap: var(--spacing-md);
+      margin-bottom: var(--spacing-lg);
+      animation: fadeInUp 0.6s ease-out;
+    }
+
+    .mode-select button {
+      padding: var(--spacing-sm) var(--spacing-lg);
+      border: 2px solid var(--primary-blue);
+      border-radius: var(--radius-md);
+      background: var(--white);
+      color: var(--primary-blue);
+      cursor: pointer;
+      transition: all var(--transition-base);
+      font-weight: 600;
+      font-size: var(--text-sm);
+      flex: 1;
+    }
+
+    .mode-select button:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+
+    .mode-select button.active {
+      background: linear-gradient(135deg, var(--primary-blue) 0%, var(--electric-blue) 100%);
+      color: var(--white);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .control-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      padding: var(--spacing-xl);
+      margin-bottom: var(--spacing-lg);
+      border-top: 3px solid var(--primary-blue);
+      animation: fadeInUp 0.7s ease-out;
+    }
+
+    .control-card h3 {
+      color: var(--primary-blue);
+      font-size: var(--text-lg);
+      margin-bottom: var(--spacing-lg);
+      font-weight: 600;
+    }
+
+    .control-card label:not(.switch) {
+      display: block;
+      margin-top: var(--spacing-md);
+      color: var(--slate-gray);
+      font-weight: 500;
+      font-size: var(--text-sm);
+    }
+
+    .control-card input[type="number"],
+    .control-card select {
+      width: 100%;
+      padding: var(--spacing-sm);
+      border-radius: var(--radius-sm);
+      border: 1px solid rgba(21, 101, 192, 0.2);
+      margin-top: var(--spacing-xs);
+      font-family: var(--font-secondary);
+      transition: all var(--transition-base);
+    }
+
+    .control-card input[type="number"]:focus,
+    .control-card select:focus {
+      outline: none;
+      border-color: var(--primary-blue);
+      box-shadow: 0 0 0 3px rgba(21, 101, 192, 0.1);
+    }
+
+    .control-card input[type="radio"] {
+      margin-right: var(--spacing-xs);
+      accent-color: var(--primary-blue);
+    }
+
+    .btn {
+      margin-top: var(--spacing-md);
+      padding: var(--spacing-sm) var(--spacing-lg);
+      border: none;
+      border-radius: var(--radius-sm);
+      background: linear-gradient(135deg, var(--primary-blue) 0%, var(--electric-blue) 100%);
+      color: var(--white);
+      cursor: pointer;
+      font-weight: 600;
+      font-size: var(--text-sm);
+      transition: all var(--transition-base);
+      box-shadow: var(--shadow-sm);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-lg);
+    }
+
+    .btn:active {
+      transform: translateY(0);
+    }
+
+    .status {
+      margin-top: var(--spacing-md);
+      padding: var(--spacing-sm) var(--spacing-md);
+      font-weight: 600;
+      color: var(--primary-blue);
+      background: linear-gradient(135deg, #eff6ff 0%, #dbeafe 100%);
+      border-radius: var(--radius-sm);
+      border-left: 3px solid var(--primary-blue);
+      font-size: var(--text-sm);
+    }
+
+    .button-group {
+      margin-top: var(--spacing-md);
+      display: flex;
+      gap: var(--spacing-sm);
+    }
+
+    .button-group .btn {
+      flex: 1;
+      margin-top: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="sidebar">
+    <div>
+      <div class="logo">Dashboard</div>
+      <nav>
+        <a href="index.html">Environment Status</a>
+        <a href="panel-parameters.html">Panel Parameters</a>
+        <a href="panel-status.html">Panel Status</a>
+        <a href="cleaning-control.html" class="active">Cleaning Control</a>
+      </nav>
+    </div>
+    <div class="logout">Logout</div>
+  </div>
+
+  <div class="fixed-header">
+    <div class="header-brand">Dashboard</div>
+    <div class="header-title">🧹 Cleaning Control System</div>
+  </div>
+
+  <div class="main-content">
+    <h1>🧹 Cleaning Control System</h1>
+
+    <div class="mode-select">
+      <button id="autoBtn" class="active">⚙️ Automatic Mode</button>
+      <button id="manualBtn">🎮 Manual Mode</button>
+    </div>
+
+    <!-- Automatic Mode -->
+    <div id="autoMode">
+      <div class="control-card">
+        <h3>⚙️ Automatic Mode Settings</h3>
+        <label>Forward PWM</label>
+        <input type="number" id="autoFpwm" placeholder="0–255" />
+        <label>Reverse PWM</label>
+        <input type="number" id="autoRpwm" placeholder="0–255" />
+        <button class="btn" id="setAutoPwm">Set PWM</button>
+
+        <label>Duration</label>
+        <select id="durationUnit">
+          <option value="minute">Minute</option>
+          <option value="hour">Hour</option>
+          <option value="day">Day</option>
+          <option value="week">Week</option>
+          <option value="month">Month</option>
+        </select>
+        <input type="number" id="durationValue" placeholder="Enter number (e.g. 20)" />
+        <button class="btn" id="setDuration">Set Duration</button>
+
+        <div class="status" id="autoStatus">Status: Waiting...</div>
+        <div class="status" id="dustStatus">Panel Dust Accumulation: --</div>
+      </div>
+    </div>
+
+    <!-- Manual Mode -->
+    <div id="manualMode" style="display:none;">
+      <div class="control-card">
+        <h3>🎮 Manual Mode Control</h3>
+        <label>Forward PWM</label>
+        <input type="number" id="manFpwm" placeholder="0–255" />
+        <label>Reverse PWM</label>
+        <input type="number" id="manRpwm" placeholder="0–255" />
+        <button class="btn" id="setManualPwm">Set PWM</button>
+
+        <button class="btn" id="scanBtn">Scan Panel</button>
+
+        <div style="margin-top:1rem;">
+          <label><input type="radio" name="mode" id="dryMode" /> Dry Cleaning</label>
+          <label><input type="radio" name="mode" id="wetMode" /> Wet Cleaning</label>
+        </div>
+
+        <div class="button-group">
+          <button class="btn" id="forwardBtn">⬆️ Forward</button>
+          <button class="btn" id="backwardBtn">⬇️ Backward</button>
+        </div>
+
+        <div class="status" id="manualStatus">Status: Waiting...</div>
+        <div class="status" id="manualDust">Panel Dust Accumulation: --</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Firebase Script -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+    import { getDatabase, ref, set, onValue } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-database.js";
+
+    // Firebase Config
+    const firebaseConfig = {
+      apiKey: "AIzaSyCXC5X8cAjpRnVvbM2f11qbKY39T_9rkvU",
+      authDomain: "hackathon-a7496.firebaseapp.com",
+      databaseURL: "https://hackathon-a7496-default-rtdb.firebaseio.com",
+      projectId: "hackathon-a7496",
+      storageBucket: "hackathon-a7496.firebasestorage.app",
+      messagingSenderId: "1011038990967",
+      appId: "1:1011038990967:web:ab7a3aa8861677b10fcc72"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+
+    const autoBtn = document.getElementById("autoBtn");
+    const manualBtn = document.getElementById("manualBtn");
+    const autoMode = document.getElementById("autoMode");
+    const manualMode = document.getElementById("manualMode");
+
+    let autoInterval = null; // to stop automatic mode loop
+
+    // ===== MODE SWITCHING LOGIC =====
+    autoBtn.onclick = async () => {
+      autoMode.style.display = "block";
+      manualMode.style.display = "none";
+      autoBtn.classList.add("active");
+      manualBtn.classList.remove("active");
+
+      // Stop manual mode operation
+      await set(ref(db, "cleaning/manual/enabled"), 0);
+      await set(ref(db, "cleaning/auto/enabled"), 1);
+
+      // Clear any manual motor/camera operations
+      await set(ref(db, "cleaning/manual/back"), 0);
+      await set(ref(db, "cleaning/manual/forw"), 0);
+      await set(ref(db, "cleaning/manual/camera"), 0);
+      document.getElementById("manualStatus").innerText = "Manual Mode stopped.";
+    };
+
+    manualBtn.onclick = async () => {
+      manualMode.style.display = "block";
+      autoMode.style.display = "none";
+      manualBtn.classList.add("active");
+      autoBtn.classList.remove("active");
+
+      // Stop auto mode operation
+      if (autoInterval) clearInterval(autoInterval);
+      await set(ref(db, "cleaning/auto/enabled"), 0);
+      await set(ref(db, "cleaning/manual/enabled"), 1);
+
+      // Stop auto camera
+      await set(ref(db, "cleaning/auto/camera"), 0);
+      document.getElementById("autoStatus").innerText = "Auto Mode stopped.";
+    };
+
+    // ---------- AUTOMATIC MODE ----------
+    document.getElementById("setAutoPwm").onclick = async () => {
+      const fpwm = document.getElementById("autoFpwm").value;
+      const rpwm = document.getElementById("autoRpwm").value;
+      await set(ref(db, "cleaning/auto/fpwm"), fpwm);
+      await set(ref(db, "cleaning/auto/rpwm"), rpwm);
+      document.getElementById("autoStatus").innerText = "PWM values set successfully!";
+    };
+
+    document.getElementById("setDuration").onclick = async () => {
+      if (autoInterval) clearInterval(autoInterval);
+      const val = Number(document.getElementById("durationValue").value);
+      const unit = document.getElementById("durationUnit").value;
+      if (!val || val <= 0) return alert("Enter valid duration!");
+
+      let ms = val * 60000; // default minute
+      if (unit === "hour") ms *= 60;
+      if (unit === "day") ms *= 60 * 24;
+      if (unit === "week") ms *= 60 * 24 * 7;
+      if (unit === "month") ms *= 60 * 24 * 30;
+
+      document.getElementById("autoStatus").innerText = `Monitoring every ${val} ${unit}(s)...`;
+
+      const runAutoScan = async () => {
+        const snap = await set(ref(db, "cleaning/auto/enabled"), 1);
+        await set(ref(db, "cleaning/auto/camera"), 1);
+        setTimeout(() => set(ref(db, "cleaning/auto/camera"), 0), 5000);
+      };
+
+      runAutoScan();
+      autoInterval = setInterval(runAutoScan, ms);
+    };
+
+    // Dust type feedback
+    onValue(ref(db, "cleaning/auto/type"), async (snap) => {
+      const type = snap.val();
+      const dust = document.getElementById("dustStatus");
+      if (type == 1) dust.innerText = "Panel Dust Accumulation: Clean";
+      else if (type == 2) dust.innerText = "Panel Dust Accumulation: Light Dust";
+      else if (type == 3) dust.innerText = "Panel Dust Accumulation: Moderate Dust";
+      else if (type == 4) dust.innerText = "Panel Dust Accumulation: Huge Dust";
+      else dust.innerText = "Panel Dust Accumulation: --";
+
+      if (type >= 1 && type <= 4) {
+        await set(ref(db, "cleaning/auto/operation"), type);
+        setTimeout(async () => {
+          await set(ref(db, "cleaning/auto/operation"), 0);
+          document.getElementById("autoStatus").innerText = "Now panel is clean.";
+        }, 10000);
+      }
+    });
+
+    // ---------- MANUAL MODE ----------
+    document.getElementById("setManualPwm").onclick = async () => {
+      const fpwm = document.getElementById("manFpwm").value;
+      const rpwm = document.getElementById("manRpwm").value;
+      await set(ref(db, "cleaning/manual/fpwm"), fpwm);
+      await set(ref(db, "cleaning/manual/rpwm"), rpwm);
+      document.getElementById("manualStatus").innerText = "Manual PWM set successfully!";
+    };
+
+    document.getElementById("scanBtn").onclick = async () => {
+      await set(ref(db, "cleaning/manual/camera"), 1);
+      setTimeout(() => set(ref(db, "cleaning/manual/camera"), 0), 5000);
+      document.getElementById("manualStatus").innerText = "Scanning panel...";
+    };
+
+    document.getElementById("dryMode").onchange = () => set(ref(db, "cleaning/manual/mode"), 1);
+    document.getElementById("wetMode").onchange = () => set(ref(db, "cleaning/manual/mode"), 0);
+
+    const forwardBtn = document.getElementById("forwardBtn");
+    const backwardBtn = document.getElementById("backwardBtn");
+
+    forwardBtn.onmousedown = async () => {
+      await set(ref(db, "cleaning/manual/forw"), 1);
+    };
+    forwardBtn.onmouseup = async () => {
+      await set(ref(db, "cleaning/manual/forw"), 0);
+      document.getElementById("manualStatus").innerText = "Your panel is clean now.";
+    };
+
+    backwardBtn.onmousedown = async () => {
+      await set(ref(db, "cleaning/manual/back"), 1);
+    };
+    backwardBtn.onmouseup = async () => {
+      await set(ref(db, "cleaning/manual/back"), 0);
+      document.getElementById("manualStatus").innerText = "Your panel is clean now.";
+    };
+
+    // Listen manual dust type
+    onValue(ref(db, "cleaning/manual/type"), (snap) => {
+      const t = snap.val();
+      const dust = document.getElementById("manualDust");
+      if (t == 1) dust.innerText = "Panel Dust Accumulation: Clean";
+      else if (t == 2) dust.innerText = "Panel Dust Accumulation: Light Dust";
+      else if (t == 3) dust.innerText = "Panel Dust Accumulation: Moderate Dust";
+      else if (t == 4) dust.innerText = "Panel Dust Accumulation: Huge Dust";
+      else dust.innerText = "Panel Dust Accumulation: --";
+    });
+  </script>
+  
+  <!-- Supabase Authentication -->
+  <script type="module" src="dashboard-auth.js"></script>
+</body>
+</html>

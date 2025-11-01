@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Panel Status | Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="dashboard-style.css" />
+</head>
+<body>
+  <div class="sidebar">
+    <div>
+      <div class="logo">Dashboard</div>
+      <nav>
+        <a href="index.html">Environment Status</a>
+        <a href="panel-parameters.html">Panel Parameters</a>
+        <a href="panel-status.html" class="active">Panel Status</a>
+        <a href="cleaning-control.html">Cleaning Control System</a>
+      </nav>
+    </div>
+    <div class="logout">Logout</div>
+  </div>
+
+  <div class="fixed-header">
+    <div class="header-brand">Dashboard</div>
+    <div class="header-title">📊 Panel Status</div>
+  </div>
+
+  <div class="main-content">
+    <h1>📊 Panel Status</h1>
+
+    <div class="cards">
+      <div class="card">
+        <h3>💨 Dust Level</h3>
+        <p id="dust-level">-- %</p>
+      </div>
+      <div class="card">
+        <h3>⚡ Expected Panel Efficiency</h3>
+        <p id="expected-eff">-- %</p>
+      </div>
+      <div class="card">
+        <h3>📅 Per Day Loss</h3>
+        <p id="loss-day">-- %</p>
+      </div>
+      <div class="card">
+        <h3>📆 Per Week Loss</h3>
+        <p id="loss-week">-- %</p>
+      </div>
+      <div class="card">
+        <h3>📊 Per Month Loss</h3>
+        <p id="loss-month">-- %</p>
+      </div>
+      <div class="card">
+        <h3>📈 Per Year Loss</h3>
+        <p id="loss-year">-- %</p>
+      </div>
+    </div>
+
+    <div class="timestamp" id="last-updated">Last Updated: --</div>
+  </div>
+
+  <script>
+    // Fetch dust data from OpenWeatherMap API
+    async function fetchDustLevel() {
+      try {
+        const lat = 22.2604; // Rourkela, Odisha
+        const lon = 84.8536;
+        const apiKey = 'd78b09357b745461e8579e49aaf3d107';
+        const url = `https://api.openweathermap.org/data/2.5/air_pollution?lat=${lat}&lon=${lon}&appid=${apiKey}`;
+        
+        console.log('🌍 Fetching dust level from OpenWeatherMap...');
+        const response = await fetch(url);
+        const data = await response.json();
+        
+        console.log('✅ API Response:', data);
+        
+        // Get PM10 value and convert to percentage
+        // WHO guideline: 0-50 µg/m³ (Good), 50-150 µg/m³ (Moderate), 150+ µg/m³ (Poor)
+        const pm10 = data.list[0].components.pm10;
+        console.log('📊 PM10 Value:', pm10, 'µg/m³');
+        
+        // Convert PM10 to percentage (0-200 µg/m³ mapped to 0-100%)
+        const dustLevel = Math.min(100, Math.floor((pm10 / 200) * 100));
+        console.log('📊 Dust Level (%):', dustLevel);
+        
+        return dustLevel;
+      } catch (error) {
+        console.error('❌ Error fetching dust data:', error);
+        // Fallback to random if API fails
+        return Math.floor(Math.random() * 100);
+      }
+    }
+
+    async function calculatePanelStatus() {
+      // Get dust level from API
+      const dustLevel = await fetchDustLevel();
+      
+      // Calculate expected efficiency
+      let expectedEff = 100 - (dustLevel * 0.5);
+      if (expectedEff < 50) expectedEff = 50; // minimum efficiency
+
+      // Calculate relative losses (bounded to 100%)
+      const dayLoss = Math.min(100, (100 - expectedEff)).toFixed(2);
+      const weekLoss = Math.min(100, (dayLoss * 0.1)).toFixed(2);
+      const monthLoss = Math.min(100, (dayLoss * 0.3)).toFixed(2);
+      const yearLoss = Math.min(100, (dayLoss * 0.5)).toFixed(2);
+
+      // Update HTML
+      document.getElementById("dust-level").textContent = dustLevel + " %";
+      document.getElementById("expected-eff").textContent = expectedEff.toFixed(2) + " %";
+      document.getElementById("loss-day").textContent = dayLoss + " %";
+      document.getElementById("loss-week").textContent = weekLoss + " %";
+      document.getElementById("loss-month").textContent = monthLoss + " %";
+      document.getElementById("loss-year").textContent = yearLoss + " %";
+
+      // Update timestamp
+      const now = new Date().toLocaleString();
+      document.getElementById("last-updated").textContent = "Last Updated: " + now;
+
+      // Change color dynamically
+      const effEl = document.getElementById("expected-eff");
+      if (expectedEff >= 90) effEl.className = "status-good";
+      else if (expectedEff >= 70) effEl.className = "status-moderate";
+      else effEl.className = "status-bad";
+    }
+
+    calculatePanelStatus();
+    setInterval(calculatePanelStatus, 600000); // Update every 10 minutes
+  </script>
+  
+  <!-- Supabase Authentication -->
+  <script type="module" src="dashboard-auth.js"></script>
+</body>
+</html>

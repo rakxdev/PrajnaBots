@@ -1,0 +1,108 @@
+/* Global Dashboard Styles */
+body {
+  margin: 0;
+  font-family: "Poppins", sans-serif;
+  background-color: #f4f6fb;
+  display: flex;
+  height: 100vh;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 240px;
+  background-color: #ffffff;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.sidebar .logo {
+  font-weight: 700;
+  font-size: 1.4rem;
+  padding: 20px;
+  text-align: center;
+  color: #1565c0;
+  border-bottom: 1px solid #eee;
+}
+
+.sidebar nav {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar nav a {
+  text-decoration: none;
+  color: #333;
+  padding: 15px 25px;
+  display: flex;
+  align-items: center;
+  font-size: 0.95rem;
+  transition: 0.3s;
+}
+
+.sidebar nav a:hover,
+.sidebar nav a.active {
+  background-color: #1565c0;
+  color: white;
+  border-radius: 8px;
+  margin: 5px;
+}
+
+.logout {
+  padding: 15px 25px;
+  text-align: center;
+  color: #d32f2f;
+  cursor: pointer;
+  border-top: 1px solid #eee;
+}
+
+.main-content {
+  flex: 1;
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+/* Cards */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.card {
+  background: white;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  padding: 1.5rem;
+  text-align: center;
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card h3 {
+  color: #1565c0;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+}
+
+.card p {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 70px;
+  }
+  .sidebar nav a span {
+    display: none;
+  }
+  .logo {
+    font-size: 1rem;
+  }
+}

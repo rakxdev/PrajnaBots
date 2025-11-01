@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Panel Parameters | Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="dashboard-style.css" />
+</head>
+<body>
+  <div class="sidebar">
+    <div>
+      <div class="logo">Dashboard</div>
+      <nav>
+        <a href="index.html">Environment Status</a>
+        <a href="panel-parameters.html" class="active">Panel Parameters</a>
+        <a href="panel-status.html">Panel Status</a>
+        <a href="cleaning-control.html">Cleaning Control System</a>
+      </nav>
+    </div>
+    <div class="logout">Logout</div>
+  </div>
+
+  <div class="fixed-header">
+    <div class="header-brand">Dashboard</div>
+    <div class="header-title">⚡ Panel Parameters</div>
+  </div>
+
+  <div class="main-content">
+    <h1>⚡ Panel Parameters</h1>
+
+    <div class="cards">
+      <div class="card">
+        <h3>⚡ Voltage</h3>
+        <p id="voltage">-- V</p>
+      </div>
+      <div class="card">
+        <h3>🔌 Current</h3>
+        <p id="current">-- A</p>
+      </div>
+      <div class="card">
+        <h3>💡 Power</h3>
+        <p id="power">-- W</p>
+      </div>
+      <div class="card">
+        <h3>⚙️ Efficiency</h3>
+        <p id="efficiency">-- %</p>
+      </div>
+      <div class="card">
+        <h3>⏰ Peak Time</h3>
+        <p id="peak-time">--</p>
+      </div>
+    </div>
+
+    <!-- Status Card - Bottom -->
+    <div class="status-card-container">
+      <div class="card status-card">
+        <h3>📊 System Status</h3>
+        <p id="status" class="status-bad">--</p>
+      </div>
+    </div>
+
+    <div class="maintenance">
+      <h3>Scheduled Maintenance</h3>
+      <ul id="maintenance-list">
+        <li>No maintenance scheduled</li>
+      </ul>
+    </div>
+  </div>
+
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-app.js";
+    import { getDatabase, ref, onValue } from "https://www.gstatic.com/firebasejs/11.0.1/firebase-database.js";
+
+    // --- Firebase Config ---
+    const firebaseConfig = {
+      apiKey: "AIzaSyCXC5X8cAjpRnVvbM2f11qbKY39T_9rkvU",
+      authDomain: "hackathon-a7496.firebaseapp.com",
+      databaseURL: "https://hackathon-a7496-default-rtdb.firebaseio.com",
+      projectId: "hackathon-a7496",
+      storageBucket: "hackathon-a7496.firebasestorage.app",
+      messagingSenderId: "1011038990967",
+      appId: "1:1011038990967:web:ab7a3aa8861677b10fcc72"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const db = getDatabase(app);
+
+    // --- HTML elements ---
+    const voltageEl = document.getElementById("voltage");
+    const currentEl = document.getElementById("current");
+    const powerEl = document.getElementById("power");
+    const statusEl = document.getElementById("status");
+    const effEl = document.getElementById("efficiency");
+    const peakEl = document.getElementById("peak-time");
+    const maintenanceList = document.getElementById("maintenance-list");
+
+    const MAX_VOLTAGE = 12;
+
+    let voltage = 0;
+    let current = 0;
+    let power = 0;
+
+    function updateUI() {
+      voltageEl.textContent = voltage.toFixed(2) + " V";
+      currentEl.textContent = current.toFixed(2) + " A";
+      powerEl.textContent = power.toFixed(2) + " W";
+
+      maintenanceList.innerHTML = "";
+
+      let efficiency, reason = "", peakTime = "";
+
+      // --- Logic for Status, Efficiency, Maintenance, Peak Time ---
+      if (voltage >= MAX_VOLTAGE) {
+        statusEl.textContent = "⚡ Peak Voltage Reached";
+        statusEl.className = "status-good";
+        efficiency = 100;
+        peakTime = "🌞 Peak Time";
+      } 
+      else if (voltage >= 9 && voltage < MAX_VOLTAGE) {
+        statusEl.textContent = "⚙️ Normal Operation";
+        statusEl.className = "status-normal";
+        efficiency = ((voltage / MAX_VOLTAGE) * 100).toFixed(1);
+        reason = "Panel generating below rated voltage — cleaning or alignment recommended.";
+        peakTime = "🌤️ Moderate";
+      } 
+      else {
+        statusEl.textContent = "⚠️ Low Voltage — Critical";
+        statusEl.className = "status-bad";
+        efficiency = ((voltage / MAX_VOLTAGE) * 100).toFixed(1);
+        reason = "Severe voltage drop detected — possible wiring issue or dust accumulation.";
+        peakTime = "🌙 Not Peak Time";
+      }
+
+      effEl.textContent = efficiency + " %";
+      peakEl.textContent = peakTime;
+
+      // --- Maintenance Section ---
+      if (reason) {
+        const timestamp = new Date().toLocaleString();
+        maintenanceList.innerHTML = `
+          <li>
+            ${reason} <br>
+            <span class="timestamp">${timestamp}</span>
+          </li>
+        `;
+      } else {
+        maintenanceList.innerHTML = `<li>No maintenance scheduled</li>`;
+      }
+    }
+
+    // --- Firebase Live Data ---
+    const voltageRef = ref(db, "panel/voltage");
+    const currentRef = ref(db, "panel/current");
+    const powerRef = ref(db, "panel/power");
+
+    onValue(voltageRef, (snap) => {
+      voltage = snap.val() || 0;
+      updateUI();
+    });
+
+    onValue(currentRef, (snap) => {
+      current = snap.val() || 0;
+      updateUI();
+    });
+
+    onValue(powerRef, (snap) => {
+      power = snap.val() || 0;
+      updateUI();
+    });
+  </script>
+  
+  <!-- Supabase Authentication -->
+  <script type="module" src="dashboard-auth.js"></script>
+</body>
+</html>
